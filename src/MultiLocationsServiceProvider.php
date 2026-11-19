@@ -32,6 +32,7 @@ class MultiLocationsServiceProvider extends PackageServiceProvider
     {
         $this->app->scoped(Locations::class);
         $this->app->singleton(Fulfilment::class);
+        $this->app->singleton(DeletionGuards::class);
         $this->app->scoped(LocationInventory::class);
         // Stock per location when stock is counted (the inventory module) and locations are on.
         $this->app->extend(Inventory::class, fn (Inventory $inventory, $app) => $inventory instanceof DatabaseInventory && ! $inventory instanceof LocationInventory

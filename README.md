@@ -59,10 +59,14 @@ the whole store again.
 ## For extensions
 
 ```php
+use Sunrice\CommerceMultiLocations\DeletionGuards;
 use Sunrice\CommerceMultiLocations\Fulfilment;
 
 // The locations a cart's lines come from, in order, or null to leave it to stock.
 app(Fulfilment::class)->resolveUsing(fn (CalculationState $state): ?array => [...]);
+
+// Why a location can't be deleted (your records point at it), or null.
+app(DeletionGuards::class)->register(fn (Location $location): ?string => ...);
 ```
 
 `LocationInventory` (bound as commerce's `Contracts\Inventory` while the module is on) adds

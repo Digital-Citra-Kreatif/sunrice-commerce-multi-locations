@@ -16,6 +16,7 @@ use Sunrice\Admin\Resources\Resource;
 use Sunrice\Admin\Resources\Tables\ActionFailed;
 use Sunrice\Admin\Resources\Tables\Column;
 use Sunrice\Admin\Resources\Tables\Table;
+use Sunrice\CommerceMultiLocations\DeletionGuards;
 use Sunrice\CommerceMultiLocations\Locations;
 use Sunrice\CommerceMultiLocations\Models\Location;
 
@@ -101,8 +102,8 @@ final class LocationResource extends Resource
 
     public static function deleteRecord(Model $record): void
     {
-        if ($record instanceof Location && $record->stock()->where('quantity', '!=', 0)->exists()) {
-            throw new ActionFailed(__('commerce-multi-locations::locations.location.has_stock'));
+        if ($record instanceof Location && ($reason = app(DeletionGuards::class)->refusal($record)) !== null) {
+            throw new ActionFailed($reason);
         }
         parent::deleteRecord($record);
         app(Locations::class)->flush();

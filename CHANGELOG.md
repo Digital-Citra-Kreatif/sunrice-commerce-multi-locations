@@ -9,4 +9,5 @@
 - Local pickup at the locations marked for it, with the stock taken there.
 - Cancellations and refunds give stock back where it came from.
 - Locations → Stock (Adjust, Transfer) and Movements; `locations:place-stock`.
-- `Fulfilment::resolveUsing()` for extensions that place lines at a location (rentals).
+- `Fulfilment::resolveUsing()` for extensions that place lines at a location (rentals), and
+  `DeletionGuards` for those whose records point at one.
