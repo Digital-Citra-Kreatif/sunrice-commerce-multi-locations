@@ -75,7 +75,12 @@ app(DeletionGuards::class)->register(fn (Location $location): ?string => ...);
 ## Development
 
 ```bash
+composer install
 composer test
 composer lint
 composer analyse
 ```
+
+`sunrice/commerce` (and Sunrice) come from Packagist. To work against a local checkout of
+`../sunrice-commerce`, copy `composer.json` to `composer.local.json`, add it as a `path` repository
+there, and run `COMPOSER=composer.local.json composer install`.
