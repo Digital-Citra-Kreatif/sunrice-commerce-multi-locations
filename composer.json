@@ -11,31 +11,12 @@
         "warehouse",
         "multi-location"
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Digital-Citra-Kreatif/sunrice-admin",
-            "no-api": true
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Digital-Citra-Kreatif/sunrice-cms",
-            "no-api": true
-        },
-        {
-            "type": "path",
-            "url": "../sunrice-commerce",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "require": {
         "php": "^8.4",
         "illuminate/contracts": "^13.0",
         "illuminate/support": "^13.0",
         "spatie/laravel-package-tools": "^1.93",
-        "sunrice/commerce": "^1.0 || dev-main"
+        "sunrice/commerce": "^0.4"
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
@@ -76,7 +57,5 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.1.0 (2026-11-21)
+
+Needs Sunrice Commerce 0.4 (`sunrice/commerce` `^0.4`) and Sunrice 0.8.
+
 - Locations (warehouses, shops, pickup points) with stock per location, kept in step with each
   variant's total.
 - Deliveries quoted from, and stock taken at, the first location that has every item; deliveries no
